@@ -6,6 +6,8 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
+mysql-connector-python = "*"
+kafka-python = "*"
 
 [requires]
 python_version = "3.7"

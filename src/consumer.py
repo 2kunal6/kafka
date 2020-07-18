@@ -19,11 +19,14 @@ mydb = mysql.connector.connect(
 mycursor = mydb.cursor()
 
 mycursor.execute("USE FinCompare")
-mycursor.execute("SELECT * FROM EmailStorage")
 
 for message in consumer:
     message = message.value
-    print(message)
-
-for x in mycursor:
-  print(x)
+    for key in message:
+        insert_cmd = "INSERT INTO EmailStorage VALUES('" + key + "', '" +  message[key] + "')"
+        print(insert_cmd)
+        try:
+            mycursor.execute(insert_cmd)
+            mydb.commit()
+        except mysql.connector.IntegrityError as e:
+            print(key + " already exists.")
