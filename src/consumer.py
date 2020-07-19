@@ -1,6 +1,9 @@
+# Adapted from https://towardsdatascience.com/kafka-python-explained-in-10-lines-of-code-800e3e07dad1
+
 import mysql.connector
-from kafka import KafkaConsumer
+
 from json import loads
+from kafka import KafkaConsumer
 
 consumer = KafkaConsumer(
     'fincompareEmailIds',
