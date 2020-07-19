@@ -6,7 +6,7 @@ from json import loads
 from kafka import KafkaConsumer
 
 consumer = KafkaConsumer(
-    'fincompareEmailIds',
+    'checkMessageProcessing',
      bootstrap_servers=['localhost:9092'],
      auto_offset_reset='earliest',
      enable_auto_commit=True,
@@ -26,15 +26,10 @@ mycursor.execute("USE FinCompare")
 for message in consumer:
     message = message.value
     for key in message:
-        insert_cmd = "INSERT INTO EmailStorage VALUES('" + key + "', '" +  message[key] + "')"
-        print(insert_cmd)
+        select_cmd = "SELECT * FROM EmailStorage VALUES('" + key + "', '" +  message[key] + "')"
+        print(select_cmd)
         try:
             mycursor.execute(insert_cmd)
             mydb.commit()
         except mysql.connector.IntegrityError as e:
             print(key + " already exists.")
-        except mysql.connector.Error as e:
-            print(e)
-
-mydb.close()
-mycursor.close()

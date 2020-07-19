@@ -15,5 +15,6 @@ with open(sys.argv[1]) as csv_file:
     for row in csv_reader:
         print(f'\t{row[1]}, {row[0]}')
         data = {row[1] : row[0]}
+        producer.send('checkMessageProcessing', value=data)
         producer.send('fincompareEmailIds', value=data)
         producer.flush()
