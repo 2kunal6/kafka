@@ -17,4 +17,5 @@ with open(sys.argv[1]) as csv_file:
         data = {row[1] : row[0]}
         producer.send('checkMessageProcessing', value=data)
         producer.send('fincompareEmailIds', value=data)
-        producer.flush()
+
+    producer.flush()
