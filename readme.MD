@@ -1,3 +1,5 @@
+This program consumes reads from a csv file and puts unique EmailIds to a relational DB. Kafka is used as a buffer to hold messages.
+
 Steps to run:
 - start mysql: sudo systemctl start mysql
 - check if zookeeper is up and if not then start it.
