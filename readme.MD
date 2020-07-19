@@ -4,3 +4,4 @@ Steps to run:
 - start kafka: sudo systemctl start kafka
 - run producer: python producer.py your-csv-filepath
 - run consumer: python consumer.py
+- run checker: python check_message_processing.py 
