@@ -22,6 +22,6 @@ Things we could have done to make it better:
 - If write performance degrades we can use sharding and to make it read-efficient we could have made more read replicas.
 - Instead of reading from CSV it could have continuously listened from a MessageQueue.
 - Kafka can be used in a cluster for more availability.
-- Normal software engineering principles like using properties file ConfigParser, putting hashed passwords in secrets, check incoming messages or csv files for any malicious values, use DB connector class, use Kafka connector class, flake, commit hooks etc.
+- Normal software engineering principles like using properties file ConfigParser, putting hashed passwords in secrets, pytest, check incoming messages or csv files for any malicious values, use DB connector class, use Kafka connector class, flake, commit hooks etc.
 - Use of Docker.
 - Configure Kafka to guarantee at least one read.
